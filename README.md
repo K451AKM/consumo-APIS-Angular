@@ -16,30 +16,57 @@ Este proyecto demuestra cómo consumir una API pública utilizando Angular 18. O
 
 ## 🚶‍♂️ Proceso de Desarrollo
 
-El desarrollador siguió estos pasos para crear esta aplicación Angular:
+El desarrollador siguió estos pasos detallados para crear esta aplicación Angular y consumir la API pública:
 
-1. **Configuración del Proyecto**: Inicializó un nuevo proyecto Angular utilizando Angular CLI.
+1. **Configuración del Proyecto**: 
+   - Inicializó un nuevo proyecto Angular utilizando Angular CLI con el comando `ng new consumo-APIS-Angular`.
+   - Configuró el proyecto para usar standalone components y el nuevo router de Angular.
 
-2. **Creación del Servicio**: Desarrolló un `UserService` para manejar las llamadas a la API para obtener datos de usuarios.
+2. **Creación del Servicio**:
+   - Desarrolló un `UserService` utilizando `ng generate service user` para manejar las llamadas a la API.
+   - Implementó un método `getUsers()` en el servicio que utiliza `HttpClient` para hacer una solicitud GET a `https://api.escuelajs.co/api/v1/users`.
+   - Utilizó RxJS para manejar la respuesta asíncrona y transformar los datos según fuera necesario.
 
-3. **Definición del Modelo**: Creó un modelo `User` para definir la estructura de los objetos de usuario.
+3. **Definición del Modelo**:
+   - Creó un modelo `User` en `user.model.ts` para definir la estructura de los objetos de usuario.
+   - Incluyó propiedades como `id`, `name`, `email`, `password`, `role`, y `avatar`.
 
-4. **Desarrollo de Componentes**: 
-   - Implementó un `TablaConsultaComponent` para mostrar los datos de usuarios en formato de tabla.
-   - Creó un `DashboardComponent` para alojar la tabla y la navegación.
-   - Desarrolló un `SideMenuComponent` para una navegación responsiva.
-   - Construyó un `LoginComponent` para la autenticación de usuarios.
+4. **Desarrollo de Componentes**:
+   - **TablaConsultaComponent**:
+     - Creó este componente con `ng generate component tabla-consulta`.
+     - Inyectó el `UserService` y utilizó su método `getUsers()` en `ngOnInit()` para obtener los datos.
+     - Implementó la lógica de paginación en el componente para mostrar los usuarios por páginas.
+     - Añadió un indicador de carga utilizando un *ngIf mientras se obtienen los datos.
+   - **DashboardComponent**:
+     - Desarrolló este componente como contenedor principal que aloja la tabla y la navegación.
+     - Utilizó el router de Angular para manejar la navegación entre diferentes vistas.
+   - **SideMenuComponent**:
+     - Implementó un menú lateral responsivo que se puede abrir y cerrar.
+     - Utilizó CSS y JavaScript para manejar la funcionalidad del menú hamburguesa.
+   - **LoginComponent**:
+     - Creó un formulario de login con validaciones utilizando Reactive Forms.
+     - Implementó la lógica de autenticación (simulada para este proyecto).
 
-5. **Enrutamiento**: Configuró el enrutamiento para navegar entre diferentes componentes.
+5. **Enrutamiento**:
+   - Configuró las rutas en `app-routing.module.ts` para navegar entre el login, dashboard y la tabla de consulta.
+   - Implementó guardias de ruta para proteger las rutas que requieren autenticación.
 
-6. **Mejora de la Interfaz de Usuario**: 
-   - Añadió paginación a la tabla de usuarios.
-   - Implementó un indicador de carga mientras se obtienen los datos.
-   - Estilizó los componentes usando CSS personalizado para un aspecto moderno.
+6. **Mejora de la Interfaz de Usuario**:
+   - **Paginación**: 
+     - Implementó la paginación en el componente de tabla utilizando lógica personalizada.
+     - Añadió controles para navegar entre páginas y mostrar el rango de usuarios visibles.
+   - **Indicador de Carga**:
+     - Utilizó un *ngIf para mostrar un spinner o skeleton loader mientras se cargan los datos.
+   - **Estilización**:
+     - Aplicó estilos CSS personalizados para lograr un diseño moderno y responsivo.
+     - Utilizó Flexbox y Grid para el layout y media queries para la responsividad.
 
-7. **Manejo de Errores**: Implementó manejo de errores para las llamadas a la API y casos extremos.
+7. **Manejo de Errores**:
+   - Implementó un interceptor HTTP para manejar errores de manera global.
+   - Añadió manejo de errores específico en el servicio y los componentes.
+   - Creó un componente de notificación para mostrar mensajes de error al usuario.
 
-8. **Pruebas y Refinamiento**: Realizó pruebas exhaustivas e hizo los refinamientos necesarios.
+Este proceso detallado muestra cómo se construyó la aplicación paso a paso, desde la configuración inicial hasta la implementación de características avanzadas y pruebas, con un enfoque particular en el consumo eficiente de la API pública.
 
 ## 🤔 Reflexiones
 
