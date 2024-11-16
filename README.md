@@ -95,8 +95,4 @@ Este proceso detallado muestra cómo se construyó la aplicación paso a paso, d
    - APIs de análisis de datos
    - APIs de mensajería en tiempo real
 
-## 📬 Contacto
 
-Para cualquier pregunta o comentario, por favor abre un issue en este repositorio.
-
-¡Feliz codificación! 🎉
