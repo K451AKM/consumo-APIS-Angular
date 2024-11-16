@@ -4,6 +4,8 @@
 
 Este proyecto demuestra cómo consumir una API pública utilizando Angular 18. Obtiene datos de usuarios de la [API Fake Store de Platzi](https://api.escuelajs.co/api/v1/users) y los muestra en una tabla responsiva y paginada con una interfaz de usuario moderna.
 
+![Tabla de Consumo de APIs](https://github.com/K451AKM/consumo-APIS-Angular/raw/master/tabla-consumo-apis.jpg)
+
 ## 🛠️ Configuración
 
 1. Clona el repositorio
